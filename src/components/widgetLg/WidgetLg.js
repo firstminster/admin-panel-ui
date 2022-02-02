@@ -36,11 +36,6 @@ const WidgetLg = () => {
         {orders.map((order) => (
           <tr className="widgetLgTr" key={order._id}>
             <td className="widgetLgUser">
-              {/* <img
-                src="https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-                className="widgetLgImg"
-              /> */}
               <span className="widgetLgName">{order.userId}</span>
             </td>
             <td className="widgetLgDate">{format(order.createdAt)}</td>
