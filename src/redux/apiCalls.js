@@ -21,7 +21,7 @@ export const getProducts = async (dispatch, user) => {
   dispatch(getProductStart());
 
   try {
-    const res = await publicRequest.post("/products");
+    const res = await publicRequest.get("/products");
     dispatch(getProductSuccess(res.data));
   } catch (error) {
     dispatch(getProductFailure());
