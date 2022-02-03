@@ -1,15 +1,13 @@
 import "./productList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteOutline from "@mui/icons-material/DeleteOutlined";
-import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getProducts } from "../../redux/apiCalls";
+import { deleteProduct, getProducts } from "../../redux/apiCalls";
 import { useSelector } from "react-redux";
 
 const ProductList = () => {
-  const [data, setData] = useState(productRows);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
@@ -18,7 +16,7 @@ const ProductList = () => {
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteProduct(id, dispatch);
   };
 
   const columns = [
@@ -55,7 +53,7 @@ const ProductList = () => {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
