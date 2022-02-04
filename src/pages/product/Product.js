@@ -42,7 +42,6 @@ const Product = () => {
         const list = res.data.sort((a, b) => {
           return a._id - b._id;
         });
-        console.log(res);
         list.map((item) =>
           setProductStats((prev) => [
             ...prev,

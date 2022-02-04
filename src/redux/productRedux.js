@@ -8,7 +8,7 @@ export const productSlice = createSlice({
     error: false,
   },
   reducers: {
-    //   Get all
+    //   Get all products
     getProductStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -21,7 +21,7 @@ export const productSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //   Delete
+    //   Delete product list
     deleteProductStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -37,7 +37,7 @@ export const productSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
-    //   Update
+    //   Update product
     updateProductStart: (state) => {
       state.isFetching = true;
       state.error = false;
@@ -46,13 +46,13 @@ export const productSlice = createSlice({
       state.isFetching = false;
       state.products[
         state.products.findIndex((item) => item._id === action.payload.id)
-      ] = action.payload.user;
+      ] = action.payload.product;
     },
     updateProductFailure: (state) => {
       state.isFetching = false;
       state.error = true;
     },
-    //   Add
+    //   Create a product
     addProductStart: (state) => {
       state.isFetching = true;
       state.error = false;
